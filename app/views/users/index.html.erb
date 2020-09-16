@@ -16,10 +16,10 @@
           <div class="card">
             <div class="card-content">
               <div class="card-image">
-                <figure class="image">
+                <figure class="image is-128x128">
                   <%= link_to user_path(user) do %>
-                    <%= image_tag 'no-image.png', size:'200x200' unless user.image.attached? %>
-                    <%= image_tag user.image.variant(resize:'200x200') if user.image.attached? %>
+                    <%= image_tag 'no-image.png' unless user.image.attached? %>
+                    <%= image_tag user.image.variant(resize:'128x128') if user.image.attached? %>
                   <% end %>
                 </figure>
               </div>
