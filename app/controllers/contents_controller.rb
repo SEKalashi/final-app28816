@@ -13,6 +13,7 @@ class ContentsController < ApplicationController
   end
 
   def show
+    @content = Content.find(params[:id])
   end
 
   def edit
