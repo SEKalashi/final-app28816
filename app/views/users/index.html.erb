@@ -18,8 +18,8 @@
               <div class="card-image">
                 <figure class="image is-256x256">
                   <%= link_to user_path(user) do %>
-                    <%= image_tag('no-image.png', class: 'is-rounded') unless user.image.attached? %>
-                    <%= image_tag(user.image, class: 'is-rounded') if user.image.attached? %>
+                    <%= image_tag('no-image.png', class: 'image_type') unless user.image.attached? %>
+                    <%= image_tag(user.image, class: 'image_type') if user.image.attached? %>
                   <% end %>
                 </figure>
               </div>
