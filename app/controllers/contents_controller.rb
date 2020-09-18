@@ -1,4 +1,6 @@
 class ContentsController < ApplicationController
+  before_action :set_content, only: [:show, :edit]
+
   def index
   end
 
@@ -13,7 +15,6 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content = Content.find(params[:id])
   end
 
   def edit
@@ -22,5 +23,9 @@ class ContentsController < ApplicationController
   private
   def content_params
     params.require(:content).permit(:title, :note, :image).merge(user_id: current_user.id)
+  end
+
+  def set_content
+    @content = Content.find(params[:id])
   end
 end
