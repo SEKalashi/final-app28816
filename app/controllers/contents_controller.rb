@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  before_action :set_content, only: [:show, :edit]
+  before_action :set_content, only: [:show, :edit, :update]
 
   def index
   end
@@ -18,6 +18,11 @@ class ContentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @content.update(content_params)
+    redirect_to content_path(@content)
   end
 
   private
