@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update]
 
   def index
+    @contents = Content.all
   end
 
   def new
