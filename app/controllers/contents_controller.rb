@@ -30,7 +30,7 @@ class ContentsController < ApplicationController
 
   def update
     if @content.update(content_params)
-       redirect_to content_path(@content)
+       redirect_to content_path(@content), notice: '更新完了です。'
     else
       render :edit
     end
