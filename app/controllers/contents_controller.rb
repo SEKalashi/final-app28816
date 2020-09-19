@@ -20,6 +20,9 @@ class ContentsController < ApplicationController
   end
 
   def edit
+    if @content.user != current_user
+      redirect_to content_path, alert: '不正なアクセスです。' 
+    end
   end
 
   def update
