@@ -32,7 +32,7 @@
                   <td><%= simple_format @content.note %></td>
                 </tr>
               </table>
-              <% if @content.user.id == current_user.id %>
+              <% if user_signed_in? && @content.user.id == current_user.id %>
                 <%= link_to "編集画面へ", edit_content_path(@content), class: "button is-success" %>
               <% end %>
             </div>

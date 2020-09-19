@@ -71,7 +71,7 @@
                     </span>
                     このコンテンツを見る
                   <% end %>
-                  <% if @user.id == current_user.id %>
+                  <% if user_signed_in? && @user.id == current_user.id %>
                     <%= link_to edit_content_path(content), class: "panel-block" do %>
                       <span class="panel-icon">
                         <i class="fas fa-edit"></i>
