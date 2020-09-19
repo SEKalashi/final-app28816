@@ -26,6 +26,12 @@ class ContentsController < ApplicationController
     redirect_to content_path(@content)
   end
 
+  def destroy
+    content = Content.find(params[:id])
+    content.destroy
+    redirect_to contents_path
+  end
+
   private
   def content_params
     params.require(:content).permit(:title, :note, :image).merge(user_id: current_user.id)
