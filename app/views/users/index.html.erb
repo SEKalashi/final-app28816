@@ -1,43 +1,43 @@
 <section class="hero is-dark">
-  <div class="hero-body">
+  <div class="hero-head">
     <div class="container">
       <h1 class="title">
-        コンテンツ一覧
+        ユーザー一覧
       </h1>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-multiline">
-      <% @users.each do |user| %>
-        <div class="column is-3">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-image">
-                <figure class="image is-256x256">
-                  <%= link_to user_path(user) do %>
-                    <%= image_tag('no-image.png', class: 'image_type') unless user.image.attached? %>
-                    <%= image_tag(user.image, class: 'image_type') if user.image.attached? %>
-                  <% end %>
-                </figure>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <div class="title"><%=link_to user.nickname, user_path(user) %>
-                  </div>
+  <section class="section main-image">
+    <div class="container">
+      <div class="columns is-multiline">
+        <% @users.each do |user| %>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-content">
+                <div class="card-image">
+                  <figure class="image is-256x256">
+                    <%= link_to user_path(user) do %>
+                      <%= image_tag('no-image.png', class: 'image_type') unless user.image.attached? %>
+                      <%= image_tag(user.image, class: 'image_type') if user.image.attached? %>
+                    <% end %>
+                  </figure>
                 </div>
               </div>
-              <div class="content">
-                投稿数：<%= 10 %>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <div class="title"><%=link_to user.nickname, user_path(user) %>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  投稿数：<%= 10 %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>

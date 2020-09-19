@@ -36,7 +36,13 @@
       </div>
       <% if user_signed_in? %>　　
         <div id="navbarExampleTransparentExample" class="navbar-menu">
-         <div class="navbar-end">
+           <div class="navbar-item">
+             <%= link_to "コンテンツ一覧", contents_path, class: "navbar-item button is-info is-light" %>
+           </div>
+           <div class="navbar-item">
+             <%= link_to "コンテンツ投稿", new_content_path, class: "navbar-item button is-info is-light" %>
+           </div>
+           <div class="navbar-end">
              <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
@@ -54,7 +60,10 @@
         </div>
       <% else %>
      <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-end">
+           <div class="navbar-item">
+             <%= link_to "コンテンツ一覧", contents_path, class: "navbar-item button is-info is-light" %>
+           </div>
+          <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
