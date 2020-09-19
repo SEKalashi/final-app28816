@@ -12,8 +12,11 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
-    @content.save
+    if @content.save
     redirect_to content_path(@content)
+    else
+      render :new
+    end
   end
 
   def show
@@ -21,13 +24,16 @@ class ContentsController < ApplicationController
 
   def edit
     if @content.user != current_user
-      redirect_to content_path, alert: '不正なアクセスです。' 
+       redirect_to content_path, alert: '不正なアクセスです。' 
     end
   end
 
   def update
-    @content.update(content_params)
-    redirect_to content_path(@content)
+    if @content.update(content_params)
+       redirect_to content_path(@content)
+    else
+      render :edit
+    end
   end
 
   def destroy
