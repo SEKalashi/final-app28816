@@ -9,22 +9,14 @@
 </section>
 
 
-<% if @user.errors.any? %>
-  <div class="notification is-danger">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <section class="section main-image">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
         <%= form_for @user do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
           <div class="field">
             <%= f.label :name, "ユーザー名", class: "label" %>
             <%= f.text_field :nickname, class: "input" %>
@@ -50,4 +42,5 @@
       </div>
     </div>
   </div>
+ <%= link_to "ユーザーアカウントを削除", registration_path(@user), class:"button mt-5 is-light is-danger", data: { confirm: "Are you sure?" }, method: :delete %>
 </section>
