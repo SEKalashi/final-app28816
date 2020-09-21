@@ -8,22 +8,14 @@
   </div>
 </section>
 
-<% if @content.errors.any? %>
-  <div class="notification is-danger">
-    <h2><%= pluralize(@content.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
-    <ul>
-      <% @content.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <section class="section main-image">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
         <%= form_for @content do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
           <div class="field">
             <%= f.label :title, "コンテンツ名", class: "label" %>
             <%= f.text_field :title, class: "input" %>

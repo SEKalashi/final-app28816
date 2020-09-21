@@ -13,7 +13,13 @@
     <div class="columns is-centered">
       <div class="column is-5">
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% if flash[:alert] %>
+      <div class="notification  is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+      <% end %>
+
+     <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
           <div class="field">
             <%= f.label :email, class: "label" %>
             <p class="control has-icons-left">
