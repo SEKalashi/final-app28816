@@ -26,7 +26,7 @@
                   <div class="media-left">
                     <figure class="image is-48x48">
                       <%= image_tag('no-image.png', class: 'image_type') unless content.user.image.attached? %>
-                      <%= image_tag(user.image, class: 'image_type') if content.user.image.attached? %>
+                      <%= image_tag(content.user.image, class: 'image_type') if content.user.image.attached? %>
                     </figure>
                   </div>
                   <div class="media-content">
