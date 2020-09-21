@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalApp</title>
+    <title>Error Collection</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,7 @@
   <nav class="navbar  is-white">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-2" style="font-family: cursive;">FinalApp</h1>
+          <h1 class="title is-2" >ErrorCollection</h1>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
@@ -25,10 +25,10 @@
       <% if user_signed_in? %>　　
         <div id="navbarExampleTransparentExample" class="navbar-menu">
            <div class="navbar-item">
-             <%= link_to "コンテンツ一覧", contents_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面一覧", contents_path, class: "navbar-item button is-info is-light" %>
            </div>
            <div class="navbar-item">
-             <%= link_to "コンテンツ投稿", new_content_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面投稿", new_content_path, class: "navbar-item button is-info is-light" %>
            </div>
            <div class="navbar-end">
              <div class="navbar-item">
@@ -49,7 +49,7 @@
       <% else %>
      <div id="navbarExampleTransparentExample" class="navbar-menu">
            <div class="navbar-item">
-             <%= link_to "コンテンツ一覧", contents_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面一覧", contents_path, class: "navbar-item button is-info is-light" %>
            </div>
           <div class="navbar-end">
             <div class="navbar-item">
