@@ -4,72 +4,49 @@
     <title>Error Collection</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
-  <nav class="navbar  is-white">
-      <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-2" >ErrorCollection</h1>
-        <% end %>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+ <body>
+   <div class="hero-head is-white">
+        <%= link_to "ErrorCollection", root_path, class: "title" %>
       <% if user_signed_in? %>　　
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+         <div class="navbar-brand">
            <div class="navbar-item">
-             <%= link_to "エラー画面一覧", contents_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面一覧", contents_path, class: "button is-info is-light" %>
            </div>
            <div class="navbar-item">
-             <%= link_to "エラー画面投稿", new_content_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面投稿", new_content_path, class: "button is-info is-light" %>
            </div>
-           <div class="navbar-end">
-             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "ユーザー一覧", users_path, class: "button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "マイページ", user_path(current_user.id), class: "button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-info is-light" %>
-                </p>
-              </div>
-            </div>
-         </div>
-        </div>
+           <div class="navbar-item">
+             <%= link_to "ユーザー一覧", users_path, class: "button is-info is-light" %>
+           </div>
+           <div class="navbar-item">
+             <%= link_to "マイページ", user_path(current_user.id), class: "button is-info is-light" %>
+           </div>
+           <div class="navbar-item">
+             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-info is-light" %>
+           </div>
+          </div>
       <% else %>
-     <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-brand">
            <div class="navbar-item">
-             <%= link_to "エラー画面一覧", contents_path, class: "navbar-item button is-info is-light" %>
+             <%= link_to "エラー画面一覧", contents_path, class: "button is-info is-light" %>
            </div>
-          <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "ユーザー一覧", users_path, class: "button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ログイン", new_user_session_path, class: "button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-light" %>
-                </p>
-              </div>
+             <%= link_to "ユーザー一覧", users_path, class: "button is-info is-light" %>
+            </div>
+            <div class="navbar-item">
+             <%= link_to "ログイン", new_user_session_path, class: "button is-info is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-light" %>
             </div>
         </div>
-      </div>
-    <% end %>
-    
-  </nav>
+      <% end %>
+   </div>
      <%= yield %>
  </body>
 </html>
