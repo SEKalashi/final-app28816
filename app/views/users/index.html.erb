@@ -10,29 +10,24 @@
 
   <section class="section main-image">
     <div class="container">
-      <div class="columns is-multiline">
+      <div class="columns">
         <% @users.each do |user| %>
           <div class="column is-3">
             <div class="card">
               <div class="card-content">
                 <div class="card-image">
-                  <figure class="image is-256x256">
-                    <%= link_to user_path(user) do %>
-                      <%= image_tag('no-image.png', class: 'image_type') unless user.image.attached? %>
-                      <%= image_tag(user.image, class: 'image_type') if user.image.attached? %>
-                    <% end %>
-                  </figure>
+                  <%= link_to user_path(user) do %>
+                    <%= image_tag('no-image.png', class: 'image_type') unless user.image.attached? %>
+                    <%= image_tag(user.image, class: 'image_type') if user.image.attached? %>
+                  <% end %>
                 </div>
               </div>
               <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <div class="title"><%=link_to user.nickname, user_path(user) %>
-                    </div>
-                  </div>
+                <div>
+                  <%=link_to user.nickname, user_path(user) %>
                 </div>
-                <div class="content">
-                  投稿数：<%= 10 %>
+                <div>
+                  投稿数：<%= user.contents.count %>
                 </div>
               </div>
             </div>

@@ -15,26 +15,17 @@
           <div class="column is-4">
             <div class="card">
               <div class="card-image">
-                <figure class="image is-4by3">
-                  <%= link_to content_path(content) do %>
-                    <%= image_tag content.image %>
-                  <% end %>
-                </figure>
+                  <%= link_to image_tag(content.image), content_path(content) %>
               </div>
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
-                    <figure class="image is-48x48">
+                    <div class="image is-48x48">
                       <%= image_tag('no-image.png', class: 'image_type') unless content.user.image.attached? %>
                       <%= image_tag(content.user.image, class: 'image_type') if content.user.image.attached? %>
-                    </figure>
+                    </div>
                   </div>
-                  <div class="media-content">
-                    <div class="title"><%=link_to content.user.nickname, user_path(content.user) %></div>
-                  </div>
-                </div>
-                <div class="content">
-                  <time><%= content.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                    <%=link_to content.user.nickname, user_path(content.user) %>
                 </div>
               </div>
             </div>

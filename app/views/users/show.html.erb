@@ -11,16 +11,16 @@
 <section class="section main-image">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-8">
+      <div class="column is-6">
         <div class="columns is-centered">
           <div class="column is-4">
-            <figure class="image is-256x256"  style="margin-left: auto; margin-right: auto;">
+            <div class="image">
                <%= image_tag('no-image.png', class: 'image_type') unless @user.image.attached? %>
                <%= image_tag(@user.image, class: 'image_type') if @user.image.attached? %>
-            </figure>
+            </div>
           </div>
           <div class="column is-8">
-            <table class="table is-fullwidth">
+            <table class="table ">
               <tr>
                 <td class="is-size-4">
                   <strong><%= @user.nickname %></strong>
@@ -35,7 +35,7 @@
                 <% end %>
               </tr>
             </table>
-            <table class="table is-fullwidth">
+            <table class="table">
               <tr>
                 <td>
                   <%= @user.profile %>
@@ -51,44 +51,35 @@
 
 <section class="section">
   <div class="container">
-    <div class="columns is-multiline">
+    <div class="columns">
       <% @user.contents.each do |content| %>
         <div class="column is-4">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-4by3">
+              <div class="image is-4by3">
                 <%= link_to content_path(content) do %>
                   <%= image_tag content.image %>
                 <% end %>
-              </figure>
+              </div>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <%= link_to content_path(content), class: "panel-block" do %>
-                    <span class="panel-icon">
-                      <i class="fas fa-book" aria-hidden="true"></i>
-                    </span>
-                    このエラー画面を見る
-                  <% end %>
                   <% if user_signed_in? && @user.id == current_user.id %>
                     <%= link_to edit_content_path(content), class: "panel-block" do %>
                       <span class="panel-icon">
-                        <i class="fas fa-edit"></i>
+                        <p class="fas fa-edit"></p>
                       </span>
                       この投稿を編集する
                     <% end %>
                     <%= link_to content_path(content), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
                       <span class="panel-icon">
-                        <i class="fas fa-trash"></i>
+                        <p class="fas fa-trash"></p>
                       </span>
                       この投稿を削除する
                     <% end %>
                   <% end %>
                 </div>
-              </div>
-              <div class="content">
-                <time><%= content.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>
             </div>
           </div>
