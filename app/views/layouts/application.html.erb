@@ -29,7 +29,13 @@
            <div class="navbar-item">
              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-info is-light" %>
            </div>
-          </div>
+           <div class="navbar-end">
+              <%= form_with url: contents_path, method: :get, class: "navbar-item", local: true do |f| %>
+              <%= f.text_field :search, class: "input", placeholder: "投稿を検索する" %>
+              <%= f.submit "検索", class: "button is-info" %>
+              <% end %>
+           </div>
+        </div>
       <% else %>
         <div class="navbar-brand">
            <div class="navbar-item">
@@ -44,12 +50,14 @@
             <div class="navbar-item">
               <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-light" %>
             </div>
+            <div class="navbar-end">
+              <%= form_with url: contents_path, method: :get, class: "navbar-item", local: true do |f| %>
+              <%= f.text_field :search, class: "input", placeholder: "投稿を検索する" %>
+              <%= f.submit "検索", class: "button is-info" %>
+              <% end %>
+            </div>
         </div>
       <% end %>
-       <%= form_with url: contents_path, method: :get, local: true do |f| %>
-       <%= f.text_field :search, class: "", placeholder: "投稿を検索する" %>
-       <%= f.submit "検索", class: "" %>
-       <% end %>
    </div>
      <%= yield %>
  </body>
