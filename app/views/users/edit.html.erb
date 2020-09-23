@@ -18,22 +18,22 @@
         <%= render 'shared/error_messages', model: f.object %>
 
           <div class="field">
-            <%= f.label :name, "ユーザー名", class: "label" %>
+            <%= f.label :name, "ユーザー名", class: "label　has-text-grey-lighter" %>
             <%= f.text_field :nickname, class: "input" %>
           </div>
 
           <div class="field">
-            <%= f.label :email, "メールアドレス", class: "label" %>
+            <%= f.label :email, "メールアドレス", class: "label　has-text-grey-lighter" %>
             <%= f.email_field :email, class: "input" %>
           </div>
 
           <div class="field">
-            <%= f.label :profile, "プロフィール", class: "label" %>
+            <%= f.label :profile, "プロフィール", class: "label　has-text-grey-lighter" %>
             <%= f.text_area :profile, class: "textarea" %>
           </div>
 
           <div class="field">
-            <%= f.label :image, "プロフィール画像", class: "label" %>
+            <%= f.label :image, "プロフィール画像", class: "label　has-text-grey-lighter" %>
             <%= f.file_field :image, class: "input" %>
           </div>
 
